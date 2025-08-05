@@ -4,6 +4,7 @@ const User = require("../models/users");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const verifyToken = require("../middleware/auth");
+
 // Register
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -66,7 +67,7 @@ exports.loginUser = async (req, res) => {
 // Middleware to verify token
 exports.getCurrentUser = async (req, res) => {
   try {
-    const user = await User.findOne(req.user.id).select("-password");
+    const user = await User.findOne({_id:req.user.id}).select("-password");
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }

@@ -1,10 +1,11 @@
-import './App.css';
+import React from "react";
+import LoginForm from "./pages/LoginForm";
 
 function App() {
   return (
-    <>
-      <h1>Welcome to the Personal Dashboard</h1>
-    </>
+    <div className="App">
+      <LoginForm />
+    </div>
   );
 }
 
