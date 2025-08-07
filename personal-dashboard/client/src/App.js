@@ -1,10 +1,11 @@
-import React from "react";
 import LoginForm from "./pages/LoginForm";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
+  const token = localStorage.getItem("token");
   return (
     <div className="App">
-      <LoginForm />
+      {token ? <Dashboard/> : <LoginForm/>}
     </div>
   );
 }
