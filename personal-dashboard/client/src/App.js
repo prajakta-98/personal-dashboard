@@ -1,5 +1,5 @@
-import LoginForm from "./pages/LoginForm";
-import Dashboard from "./pages/Dashboard";
+import LoginForm from "./components/pages/LoginForm";
+import Dashboard from "./components/pages/Dashboard";
 
 function App() {
   const token = localStorage.getItem("token");

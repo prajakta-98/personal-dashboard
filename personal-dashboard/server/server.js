@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieparser = require("cookie-parser");
 require("dotenv").config(); // Load environment variables from .env file
 const connectDB = require("./config/db");
 const { default: mongoose } = require("mongoose");
@@ -8,7 +9,11 @@ const authRoutes = require("./routes/auth");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cookieparser());
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true //allow sending cookies
+}));
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 
